@@ -1,0 +1,18 @@
+{
+  "name": "proyecto_m4",
+  "version": "1.0.0",
+  "description": "Aplicacion de servicios para la gestion de reservas en hoteles que involucra el CRUD utilizando nodejs y express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "gestion",
+    "reservas",
+    "hotel"
+  ],
+  "author": "christopher",
+  "license": "ISC"
+}
