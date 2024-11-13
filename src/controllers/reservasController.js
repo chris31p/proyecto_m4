@@ -60,20 +60,53 @@ const eliminarReserva = (req, res) => {
 
 //Operaciones de filtros
 const filtroReservas = (req, res) => {
+    console.log('¡Función filtroReservas llamada!'); // Confirmar que la función fue llamada
+    console.log('Parámetros recibidos:', req.query);
+
     let filtro = reservas;
-    const {hotel, fecha_inicio, fecha_fin, tipo_habitacion, estado, huespedes} = req.query;
+    const { hotel, fecha_inicio, fecha_fin, tipo_habitacion, estado, huespedes } = req.query;
 
-    if(hotel) filtro = filtro.filter(r => r.hotel === hotel);
-    if(fecha_inicio && fecha_fin){
-        filtro = filtro.filter(r =>
-            r.fecha_inicio >=fecha_inicio && r.fecha_fin <= fecha_fin
-        );
+    if (hotel) {
+        filtro = filtro.filter(r => {
+            const match = r.hotel.toLowerCase() === hotel.toLowerCase();
+            console.log(`Comparando hotel: ${r.hotel.toLowerCase()} === ${hotel.toLowerCase()} -> ${match}`);
+            return match;
+        });
     }
-    if(tipo_habitacion) filtro = filtro.filter(r => r.tipo_habitacion === tipo_habitacion);
-    if(estado) filtro = filtro.filter(r => r.estado === estado);
-    if(huespedes) filtro = filtro.filter(r => r.huespedes == huespedes);
 
-    res.json(filtro); //Nos devuelve un json con las reservas filtradas
+    if (fecha_inicio && fecha_fin) {
+        filtro = filtro.filter(r => {
+            const match = r.fecha_inicio >= fecha_inicio && r.fecha_fin <= fecha_fin;
+            console.log(`Comparando fechas: ${r.fecha_inicio} >= ${fecha_inicio} && ${r.fecha_fin} <= ${fecha_fin} -> ${match}`);
+            return match;
+        });
+    }
+
+    if (tipo_habitacion) {
+        filtro = filtro.filter(r => {
+            const match = r.tipo_habitacion.toLowerCase() === tipo_habitacion.toLowerCase();
+            console.log(`Comparando tipo de habitación: ${r.tipo_habitacion.toLowerCase()} === ${tipo_habitacion.toLowerCase()} -> ${match}`);
+            return match;
+        });
+    }
+
+    if (estado) {
+        filtro = filtro.filter(r => {
+            const match = r.estado.toLowerCase() === estado.toLowerCase();
+            console.log(`Comparando estado: ${r.estado.toLowerCase()} === ${estado.toLowerCase()} -> ${match}`);
+            return match;
+        });
+    }
+
+    if (huespedes) {
+        filtro = filtro.filter(r => {
+            const match = r.huespedes == huespedes;
+            console.log(`Comparando huéspedes: ${r.huespedes} == ${huespedes} -> ${match}`);
+            return match;
+        });
+    }
+
+    res.json(filtro); // Devuelve un JSON con las reservas filtradas
 };
 
 module.exports = {crearReserva, obtenerReservas, obtenerReservaPorId, actualizarReserva, eliminarReserva, filtroReservas};

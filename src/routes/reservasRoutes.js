@@ -1,20 +1,14 @@
 const express = require('express');
-const {
-    crearReserva,
-    obtenerReservas,
-    obtenerReservaPorId,
-    actualizarReserva, 
-    eliminarReserva,
-    filtroReservas
-} = require('../controllers/reservasController');
 const rutas = express.Router();
+const reservasController = require('../controllers/reservasController.js');
 
-//Definimos la ruta a cada función del controller:
-rutas.post('/', crearReserva); //Creamos una nueva reserva
-rutas.get('/', obtenerReservas);
-rutas.get('/', filtroReservas); //Aplicamos un filtro a las reservas
-rutas.get('/:id', obtenerReservaPorId); //Obtenemos una reserva específica por ID
-rutas.put('/:id', actualizarReserva); //Actualizamos una reserva específica
-rutas.delete('/:id', eliminarReserva); //Eliminamos una reserva específica
+// Ruta para filtrar reservas (usa el método GET)
+rutas.get('/', reservasController.filtroReservas);
+
+// Otras rutas CRUD para reservas
+rutas.post('/', reservasController.crearReserva);
+rutas.get('/:id', reservasController.obtenerReservaPorId);
+rutas.put('/:id', reservasController.actualizarReserva);
+rutas.delete('/:id', reservasController.eliminarReserva);
 
 module.exports = rutas; //Usamos module para exportar las rutas
