@@ -9,10 +9,11 @@ const {
 } = require('../controllers/reservasController');
 const rutas = express.Router();
 
-rutas.post('/', crearReserva);
-rutas.get('/', filtroReservas);
-rutas.get('/:id', obtenerReservaPorId);
-rutas.put('/:id', actualizarReserva);
-rutas.delete('/:id', eliminarReserva);
+//Definimos la ruta a cada función del controller:
+rutas.post('/', crearReserva); //Creamos una nueva reserva
+rutas.get('/', filtroReservas); //Aplicamos un filtro a las reservas
+rutas.get('/:id', obtenerReservaPorId); //Obtenemos una reserva específica por ID
+rutas.put('/:id', actualizarReserva); //Actualizamos una reserva específica
+rutas.delete('/:id', eliminarReserva); //Eliminamos una reserva específica
 
-module.exports = rutas;
+module.exports = rutas; //Usamos module para exportar las rutas
