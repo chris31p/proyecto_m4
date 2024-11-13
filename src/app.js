@@ -1,5 +1,5 @@
 const express = require('express');
-const reservasRoutes = require('./routes/reservasRoutes');
+const reservasRoutes = require('./routes/reservasRoutes.js');
 const app = express();
 
 app.use(express.json()); //Permite que express maneje el formato json en el body de las solicitudes

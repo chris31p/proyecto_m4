@@ -11,6 +11,7 @@ const rutas = express.Router();
 
 //Definimos la ruta a cada función del controller:
 rutas.post('/', crearReserva); //Creamos una nueva reserva
+rutas.get('/', obtenerReservas);
 rutas.get('/', filtroReservas); //Aplicamos un filtro a las reservas
 rutas.get('/:id', obtenerReservaPorId); //Obtenemos una reserva específica por ID
 rutas.put('/:id', actualizarReserva); //Actualizamos una reserva específica

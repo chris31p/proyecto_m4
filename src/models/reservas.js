@@ -1,5 +1,3 @@
-const reservas = [];
-
 class Reserva {
     constructor(id, hotel, fecha_inicio, fecha_fin, tipo_habitacion, estado, huespedes){
         this.id = id;
@@ -11,5 +9,7 @@ class Reserva {
         this.huespedes = huespedes;
     }
 }
+//Creamos un array para listar las reservas
+const reservas = [];
 
-module.exports = {reservas, Reserva};
+module.exports = {Reserva, reservas};
