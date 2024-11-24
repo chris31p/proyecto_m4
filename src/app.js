@@ -5,9 +5,6 @@ const swaggerUI = require('swagger-ui-express');
 const specs = require('../swagger/swagger.js');
 
 app.use(express.json()); //Permite que express maneje el formato json en el body de las solicitudes
-app.get('/', (req, res) => {
-    res.send('Bienvenido a la API Reservas. Visita /api-docs para la documentación.');
-  });
 //Configuración del endpoint de Swagger UI
 app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(specs));
 
