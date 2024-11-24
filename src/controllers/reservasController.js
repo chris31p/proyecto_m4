@@ -107,6 +107,11 @@ const filtroReservas = (req, res) => {
         });
     }
 
+     // Verificar si no hay resultados después del filtrado
+     if (filtro.length === 0) {
+        return res.status(404).json({ message: 'Esta reserva no existe!' });
+    }
+
     res.json(filtro); // Devuelve un JSON con las reservas filtradas
 };
 
