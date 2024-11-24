@@ -5,8 +5,10 @@ const swaggerUI = require('swagger-ui-express');
 const specs = require('../swagger/swagger.js');
 
 app.use(express.json()); //Permite que express maneje el formato json en el body de las solicitudes
-app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(specs))
-app.use('/api/reservas', (req, res, next) => {
+//Configuración del endpoint de Swagger UI
+app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(specs));
+//Definit la base de rutas de la API
+app.use('/', (req, res, next) => {
     console.log('Solicitud recibida en /api/reservas'); // Depuración
     next(); // Continua al siguiente middleware
 },reservasRoutes); //Definimos la ruta base para las reservas
