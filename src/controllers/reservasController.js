@@ -24,10 +24,11 @@ const obtenerReservaPorId = (req, res) => {
     console.log('Reserva con ID:', reservaId);
     
     const reserva = reservas.find(r => r.id === reservaId);
-    if(!reserva){
+    if(reserva){
+        res.json(reserva);
+    } else {
         return res.status(404).json({ message: 'Reserva no encontrada' });
     }
-    res.json(reserva);
 };
 
 //Funcion para actualizar una reserva por el ID
@@ -60,7 +61,7 @@ const eliminarReserva = (req, res) => {
 
 //Operaciones de filtros
 const filtroReservas = (req, res) => {
-    console.log('¡Función filtroReservas llamada!'); // Confirmar que la función fue llamada
+    console.log('¡Filtrando reserva...!'); // Confirmar que la función fue llamada
     console.log('Parámetros recibidos:', req.query);
 
     let filtro = reservas;
