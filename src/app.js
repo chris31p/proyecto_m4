@@ -10,7 +10,7 @@ app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(specs));
 
 //Definir la base de rutas de la API
 app.use('/', (req, res, next) => {
-    res.send('Bienvenido a la API Biblioteca. Visita /api-docs para la documentación.');
+    console.log('Solicitud recibida en /api/reservas'); // Depuración
     next(); // Continua al siguiente middleware
 },reservasRoutes); //Definimos la ruta base para las reservas
 
