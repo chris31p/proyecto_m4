@@ -23,15 +23,16 @@ La aplicación API_Reservas nos permite gestionar:
 
 # Resultados de la API
 Interfaz Swagger
-![image](https://github.com/user-attachments/assets/51c1c114-43e7-47fa-a21e-beca21fb36f1)
+![image](https://github.com/user-attachments/assets/123d437f-0a5c-430e-82e8-33a95f2065a7)
 
 Endpoint POST
 
-![image](https://github.com/user-attachments/assets/8ad2e69c-c70a-4e6f-9376-49ae6b6ac168)
+![image](https://github.com/user-attachments/assets/364dcd07-f60b-4175-9c89-62545d5bfe6e)
+![image](https://github.com/user-attachments/assets/89ed54cd-3524-4dbe-9abb-330283439902)
 
 Endpoint GET ALL
 
-![image](https://github.com/user-attachments/assets/61bbf9ba-59be-4342-8a70-98bef671def0)
+![image](https://github.com/user-attachments/assets/0b0aae0a-9ceb-46b3-a428-3c5db7ce3a5e)
 
 Endpoint GET by ID
 
